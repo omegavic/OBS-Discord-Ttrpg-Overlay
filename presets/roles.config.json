@@ -1,0 +1,99 @@
+{
+  "canvas": { 
+    "width": 1920, 
+    "height": 1080 
+  },
+  "layout": {
+    "mode": "grid",
+    "xalignment": "left",
+    "yalignment": "top",
+    "offsetX": 0,
+    "offsetY": 0,
+    "gap": 150,
+    "padding": 12,
+    "gridColumns": 6,
+    "slot": {
+      "size": 200,
+      "borderRadius": 20
+    }
+  },
+  "style": {
+    "frameColor": "#be9e55",
+    "frameBg": "rgba(255, 255, 255, 0.25)",
+    "borderWidth": 4,
+    "talkColor": "#3ba55c",
+    "muteDim": 0.45,
+    "nameFont": "'Amiri'",
+    "nameColor": "#f4d47c",
+    "nameBg": "rgba(0, 0, 0, 0.45)",
+    "roleColor": "#b8a070",
+    "roleBg": "#5865f2",
+    "offlineText": "OFFLINE"
+  },
+  "users": [
+    {
+      "id": "111111111111111111",
+      "displayName": "Player 1",
+      "avatarUrl": "",
+      "roleName": "Carry",
+      "roleColor": "#ffffff",
+      "roleBg": "#eb459e"
+    },
+    {
+      "id": "222222222222222222",
+      "displayName": "Player 2",
+      "avatarUrl": "",
+      "roleName": "Mid",
+      "roleColor": "#ffffff",
+      "roleBg": "#5865f2"
+    },
+    {
+      "id": "333333333333333333",
+      "displayName": "Player 3",
+      "avatarUrl": "",
+      "roleName": "Offlane",
+      "roleColor": "#ffffff",
+      "roleBg": "#3ba55c"
+    },
+    {
+      "id": "444444444444444444",
+      "displayName": "Player 4",
+      "avatarUrl": "",
+      "roleName": "Support",
+      "roleColor": "#1a1a1a",
+      "roleBg": "#faa81a"
+    },
+    {
+      "id": "555555555555555555",
+      "displayName": "Player 5",
+      "avatarUrl": "",
+      "roleName": "Hard Support",
+      "roleColor": "#ffffff",
+      "roleBg": "#ed4245"
+    },
+    {
+      "id": "666666666666666666",
+      "displayName": "Player 6",
+      "avatarUrl": "",
+      "roleName": "Sub",
+      "roleColor": "#ffffff",
+      "roleBg": "#9b59b6"
+    },
+    {
+      "id": "777777777777777777",
+      "displayName": "Player 7",
+      "avatarUrl": "",
+      "roleName": "Coach",
+      "roleColor": "#1a1a1a",
+      "roleBg": "#1abc9c"
+    },
+    {
+      "id": "151840089180209153",
+      "displayName": "Player 8",
+      "avatarUrl": "https://imgs.search.brave.com/06CMQFOusOXroH9izKuXMqmGqTYMD5wG9sP9x_9cv_o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9lbi5t/ZW1pbmcud29ybGQv/aW1hZ2VzL2VuL3Ro/dW1iLzEvMTgvR2ln/YV9DaGFkLmpwZy8z/MDBweC1HaWdhX0No/YWQuanBn",
+      "roleName": "Caster",
+      "roleColor": "#ffffff",
+      "roleBg": "#2c3e50"
+    }
+  ]
+}

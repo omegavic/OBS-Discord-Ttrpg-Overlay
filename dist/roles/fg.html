@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discord Overlay — Foreground Layer</title>
+
+<!-- Fuente de Google (opcional, estilo fantasía) -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --accent: #be9e55;
+    --background: #3d3b3c;
+    --border-corner-svg: url("./assets/border_corner.svg");
+    
+    --mask-gradient: calc(20px - 4px);
+    --minus-mask-gradient: calc(var(--mask-gradient) * -1)
+  }
+  html, body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    overflow: hidden;
+    font-family: 'Amiri';
+  }
+
+  /* === CONTENEDOR DE CADA JUGADOR === */
+  .slot {
+    position: absolute;
+    width: calc(200px + 300px);
+    height: calc(200px + 300px);
+  }
+
+  /* === PLACA DE NOMBRE === */
+  .name-plate {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    padding: 6px 32px 7px 32px;
+    text-align: center;
+    
+    /* Fondo con gradiente estilo pergamino oscuro */
+
+  }
+.panel-background {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      135deg,
+      rgba(20, 12, 5, 0.92) 0%,
+      rgba(45, 28, 12, 0.88) 50%,
+      rgba(20, 12, 5, 0.92) 100%
+    );
+        -webkit-mask:
+        radial-gradient(
+            8px at 8px 8px,
+            transparent 98%,
+            black
+        ) -8px -8px;
+
+    mask:
+        radial-gradient(
+            var(--mask-gradient) at var(--mask-gradient) var(--mask-gradient),
+            transparent 98%,
+            black
+        ) var(--minus-mask-gradient) var(--minus-mask-gradient);
+    /* Borde dorado sutil */
+    border: 4px solid #be9e55;
+    border-radius: 4px;
+    
+    /* Sombra para dar profundidad */
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(212, 175, 55, 0.15);
+      
+    z-index: 0;
+}
+
+  /* === TIPOGRAFÍA === */
+  .character-name {
+    color: #f4d47c;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+    line-height: 1.2;
+  }
+
+  .player-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #b8a070;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Separador decorativo entre nombre y jugador */
+  .separator {
+    width: 60%;
+    height: 1px;
+    margin: 6px auto 4px auto;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.5) 50%,
+      transparent 100%
+    );
+  }
+
+
+
+  .corner {
+    position: absolute;
+    width: 20px;  /* Ajusta el tamaño según tu SVG */
+    height: 20px;
+    background-color: #be9e55;
+
+    -webkit-mask:
+        var(--border-corner-svg) no-repeat center;
+
+    mask:
+        var(--border-corner-svg) no-repeat center;
+
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+.box-corners {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+  /* Rotación para cada esquina */
+
+  .corner.tr { 
+    top: -0px; 
+    right: -0px; 
+    transform: scaleX(-1);  /* Voltea horizontalmente */
+  }
+  .corner.bl { 
+    bottom: -0px; 
+    left: -0px; 
+    transform: scaleY(-1);  /* Voltea verticalmente */
+  }
+  .corner.br { 
+    bottom: -0px; 
+    right: -0px; 
+    transform: scale(-1, -1);  /* Voltea ambos ejes */
+  }
+
+.panel-content {
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+</head>
+<body>
+
+
+  <div class="slot" data-userid="111111111111111111" style="left: 12px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 1</div>
+      <div class="separator"></div>
+      <div class="player-name">Carry</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="222222222222222222" style="left: 362px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 2</div>
+      <div class="separator"></div>
+      <div class="player-name">Mid</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="333333333333333333" style="left: 712px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 3</div>
+      <div class="separator"></div>
+      <div class="player-name">Offlane</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="444444444444444444" style="left: 1062px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 4</div>
+      <div class="separator"></div>
+      <div class="player-name">Support</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="555555555555555555" style="left: 1412px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 5</div>
+      <div class="separator"></div>
+      <div class="player-name">Hard Support</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="666666666666666666" style="left: 1762px; top: 12px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 6</div>
+      <div class="separator"></div>
+      <div class="player-name">Sub</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="777777777777777777" style="left: 12px; top: 362px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 7</div>
+      <div class="separator"></div>
+      <div class="player-name">Coach</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+  <div class="slot" data-userid="151840089180209153" style="left: 362px; top: 362px;">
+    
+    <div class="name-plate">
+      <!-- Esquinas ornamentales -->
+      <div class="panel-background"></div>
+      <div class="box-corners">
+              <div class="corner tl"></div>
+              <div class="corner tr"></div>
+              <div class="corner bl"></div>
+              <div class="corner br"></div>
+
+      </div>
+      <!-- Textos -->
+
+          <div class="panel-content">
+
+      <div class="character-name">Player 8</div>
+      <div class="separator"></div>
+      <div class="player-name">Caster</div>
+
+    </div>
+
+    </div>
+    
+  </div>
+
+
+</body>
+</html>

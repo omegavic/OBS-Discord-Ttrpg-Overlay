@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discord Overlay — Foreground Layer</title>
+
+<!-- Fuente de Google (opcional, estilo fantasía) -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  html, body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    overflow: hidden;
+    font-family: {{NAME_FONT}};
+  }
+
+:root {
+    --accent: #bba77f;
+    --background: #101b35;
+
+    --corner-size: 10px;
+    --border-size: 1px;
+
+    --border-corner-svg: url("./border_corner.svg");
+}
+
+  /* === CONTENEDOR DE CADA JUGADOR === */
+  .slot {
+    position: absolute;
+    width: {{SLOT_SIZE}}px;
+    height: {{SLOT_SIZE}}px;
+  }
+  .panel-background {
+      position: absolute;
+      inset: 0;
+
+      background-color: var(--background);
+      border: var(--border-size) solid var(--accent);
+
+      /* Máscara exclusivamente para esta capa */
+      -webkit-mask:
+          radial-gradient(
+              8px at 8px 8px,
+              transparent 98%,
+              black
+          ) -8px -8px;
+
+      mask:
+          radial-gradient(
+              8px at 8px 8px,
+              transparent 98%,
+              black
+          ) -8px -8px;
+
+      z-index: 0;
+  }
+  /* === PLACA DE NOMBRE === */
+  .name-plate {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    padding: 12px 32px 14px 32px;
+    text-align: center;
+    
+    /* Fondo con gradiente estilo pergamino oscuro */
+    background: linear-gradient(
+      135deg,
+      rgba(20, 12, 5, 0.92) 0%,
+      rgba(45, 28, 12, 0.88) 50%,
+      rgba(20, 12, 5, 0.92) 100%
+    );
+    
+    /* Borde dorado sutil */
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 4px;
+    
+    /* Sombra para dar profundidad */
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(212, 175, 55, 0.15);
+  }
+
+  /* Línea decorativa superior (opcional) */
+  .name-plate::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #d4af37 50%,
+      transparent 100%
+    );
+    opacity: 0.6;
+  }
+
+  /* === TIPOGRAFÍA === */
+  .character-name {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f4d47c;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 
+      0 0 8px rgba(212, 175, 55, 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.9);
+    line-height: 1.2;
+  }
+
+  .player-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #b8a070;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Separador decorativo entre nombre y jugador */
+  .separator {
+    width: 60%;
+    height: 1px;
+    margin: 6px auto 4px auto;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.5) 50%,
+      transparent 100%
+    );
+  }
+.box-corners {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+.corner-pair {
+    display: flex;
+    justify-content: space-between;
+}
+
+  .corner {
+      width: var(--corner-size);
+      height: var(--corner-size);
+
+      background-color: var(--accent);
+
+      -webkit-mask:
+          var(--border-corner-svg) no-repeat center;
+
+      mask:
+          var(--border-corner-svg) no-repeat center;
+
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+  }
+
+  .corner.bot {
+      transform: scaleY(-1);
+  }
+
+  .corner.right {
+      transform: scaleX(-1);
+  }
+
+  .corner.bot.right {
+      transform: scale(-1, -1);
+  }
+
+</style>
+</head>
+<body>
+
+{{#USERS}}
+  <div class="slot" data-userid="{{USER_ID}}" style="left: {{SLOT_X}}; top: {{SLOT_Y}};">
+    
+    
+
+
+    <div class="name-plate">
+      <div class="panel-background"></div>
+      <div class="box-corners">
+
+          <div class="corner-pair">
+              <div class="corner"></div>
+              <div class="corner right"></div>
+          </div>
+
+          <div class="corner-pair">
+              <div class="corner bot"></div>
+              <div class="corner bot right"></div>
+          </div>
+
+      </div>
+      <!-- Textos -->
+      <div class="character-name">{{DISPLAY_NAME}}</div>
+      <div class="separator"></div>
+      <div class="player-name">{{ROLE_NAME}}</div>
+    </div>
+    
+  </div>
+{{/USERS}}
+
+</body>
+</html>
