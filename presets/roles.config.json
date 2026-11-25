@@ -6,15 +6,15 @@
   "layout": {
     "mode": "grid",
     "xalignment": "left",
-    "yalignment": "top",
-    "offsetX": 0,
-    "offsetY": 0,
-    "gap": 150,
-    "padding": 12,
-    "gridColumns": 6,
+    "yalignment": "bottom",
+    "offsetX": 45,
+    "offsetY": -20,
+    "gap": 104,
+    "padding": 0,
+    "gridColumns": 8,
     "slot": {
-      "size": 200,
-      "borderRadius": 20
+      "size": 140,
+      "borderRadius": 16
     }
   },
   "style": {
@@ -35,7 +35,7 @@
       "id": "111111111111111111",
       "displayName": "Player 1",
       "avatarUrl": "",
-      "roleName": "Carry",
+      "roleName": "Amelia",
       "roleColor": "#ffffff",
       "roleBg": "#eb459e"
     },
@@ -43,7 +43,7 @@
       "id": "222222222222222222",
       "displayName": "Player 2",
       "avatarUrl": "",
-      "roleName": "Mid",
+      "roleName": "Gestalt",
       "roleColor": "#ffffff",
       "roleBg": "#5865f2"
     },
@@ -51,7 +51,7 @@
       "id": "333333333333333333",
       "displayName": "Player 3",
       "avatarUrl": "",
-      "roleName": "Offlane",
+      "roleName": "Artyion",
       "roleColor": "#ffffff",
       "roleBg": "#3ba55c"
     },
@@ -59,7 +59,7 @@
       "id": "444444444444444444",
       "displayName": "Player 4",
       "avatarUrl": "",
-      "roleName": "Support",
+      "roleName": "Emilia",
       "roleColor": "#1a1a1a",
       "roleBg": "#faa81a"
     },

@@ -28,18 +28,18 @@
   /* === CONTENEDOR DE CADA JUGADOR === */
   .slot {
     position: absolute;
-    width: calc({{SLOT_SIZE}}px + 300px);
-    height: calc({{SLOT_SIZE}}px + 300px);
+    width: {{SLOT_SIZE}}px;
+    height: {{SLOT_SIZE}}px;
   }
 
   /* === PLACA DE NOMBRE === */
   .name-plate {
     position: absolute;
-    bottom: -30px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 200px;
-    padding: 6px 32px 7px 32px;
+  min-width: 150px;            /* antes 200 */
+  padding: 6px 14px 7px 14px; 
     text-align: center;
     
     /* Fondo con gradiente estilo pergamino oscuro */

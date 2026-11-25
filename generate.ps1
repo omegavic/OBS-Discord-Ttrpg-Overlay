@@ -325,7 +325,7 @@ $globalTokens = @{
             default { '0 auto 0 0' }
         })
     NAME_FONT_SIZE    = [Math]::Max(11, [int]($slotSize * 0.12))
-    ROLE_FONT_SIZE    = [Math]::Max(10, [int]($slotSize * 0.09))
+    ROLE_FONT_SIZE    = [Math]::Max(10, [int]($slotSize * 0.10))
     OFFLINE_FONT_SIZE = [Math]::Max(10, [int]($slotSize * 0.12))
 }
 

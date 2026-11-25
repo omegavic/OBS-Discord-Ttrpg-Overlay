@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 150px;
+  gap: 104px;
   /* The list fills the browser source and places itself inside it per
      layout.xalignment / layout.yalignment. In grid mode max-width caps it at
      gridColumns, so the margin is what positions that capped box. */
@@ -33,12 +33,12 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0 auto 0 0;
-  padding: 12px;
+  padding: 0px;
   list-style: none;
-  max-width: 1974px;
+  max-width: 1848px;
   justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: flex-end;
+  align-content: flex-end;
 }
 
 li.voice_state,
@@ -46,8 +46,8 @@ li.voice-state {
   position: relative;
   flex: none;
   margin: 0;
-  width: 200px;
-  height: 200px;
+  width: 140px;
+  height: 140px;
 }
 
 /* ---------- avatar ---------- */
@@ -55,9 +55,9 @@ img.voice_avatar,
 img.avatar {
   display: block;
   box-sizing: border-box;
-  width: 200px !important;
-  height: 200px !important;
-  border-radius: 20px !important;
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 16px !important;
   border: 4px solid #be9e55 !important;
   object-fit: cover;
 }
@@ -78,7 +78,7 @@ img.avatar {
   color: #f4d47c !important;
   font-family: 'Amiri';
   font-weight: 700;
-  font-size: 24px !important;
+  font-size: 17px !important;
   text-shadow: none !important;
   white-space: nowrap;
   overflow: hidden;

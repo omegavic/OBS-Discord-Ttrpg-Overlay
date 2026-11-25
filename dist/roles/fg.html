@@ -13,7 +13,7 @@
     --background: #3d3b3c;
     --border-corner-svg: url("./assets/border_corner.svg");
     
-    --mask-gradient: calc(20px - 4px);
+    --mask-gradient: calc(16px - 4px);
     --minus-mask-gradient: calc(var(--mask-gradient) * -1)
   }
   html, body {
@@ -28,18 +28,18 @@
   /* === CONTENEDOR DE CADA JUGADOR === */
   .slot {
     position: absolute;
-    width: calc(200px + 300px);
-    height: calc(200px + 300px);
+    width: 140px;
+    height: 140px;
   }
 
   /* === PLACA DE NOMBRE === */
   .name-plate {
     position: absolute;
-    bottom: -30px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 200px;
-    padding: 6px 32px 7px 32px;
+  min-width: 150px;            /* antes 200 */
+  padding: 6px 14px 7px 14px; 
     text-align: center;
     
     /* Fondo con gradiente estilo pergamino oscuro */
@@ -84,7 +84,7 @@
   .character-name {
     color: #f4d47c;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 17px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-shadow: 
@@ -95,7 +95,7 @@
 
   .player-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 14px;
     font-style: italic;
     color: #b8a070;
     margin-top: 4px;
@@ -119,8 +119,8 @@
 
   .corner {
     position: absolute;
-    width: 20px;  /* Ajusta el tamaño según tu SVG */
-    height: 20px;
+    width: 16px;  /* Ajusta el tamaño según tu SVG */
+    height: 16px;
     background-color: #be9e55;
 
     -webkit-mask:
@@ -173,7 +173,7 @@
 <body>
 
 
-  <div class="slot" data-userid="111111111111111111" style="left: 12px; top: 12px;">
+  <div class="slot" data-userid="111111111111111111" style="left: 45px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -191,7 +191,7 @@
 
       <div class="character-name">Player 1</div>
       <div class="separator"></div>
-      <div class="player-name">Carry</div>
+      <div class="player-name">Amelia</div>
 
     </div>
 
@@ -199,7 +199,7 @@
     
   </div>
 
-  <div class="slot" data-userid="222222222222222222" style="left: 362px; top: 12px;">
+  <div class="slot" data-userid="222222222222222222" style="left: 289px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -217,7 +217,7 @@
 
       <div class="character-name">Player 2</div>
       <div class="separator"></div>
-      <div class="player-name">Mid</div>
+      <div class="player-name">Gestalt</div>
 
     </div>
 
@@ -225,7 +225,7 @@
     
   </div>
 
-  <div class="slot" data-userid="333333333333333333" style="left: 712px; top: 12px;">
+  <div class="slot" data-userid="333333333333333333" style="left: 533px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -243,7 +243,7 @@
 
       <div class="character-name">Player 3</div>
       <div class="separator"></div>
-      <div class="player-name">Offlane</div>
+      <div class="player-name">Artyion</div>
 
     </div>
 
@@ -251,7 +251,7 @@
     
   </div>
 
-  <div class="slot" data-userid="444444444444444444" style="left: 1062px; top: 12px;">
+  <div class="slot" data-userid="444444444444444444" style="left: 777px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -269,7 +269,7 @@
 
       <div class="character-name">Player 4</div>
       <div class="separator"></div>
-      <div class="player-name">Support</div>
+      <div class="player-name">Emilia</div>
 
     </div>
 
@@ -277,7 +277,7 @@
     
   </div>
 
-  <div class="slot" data-userid="555555555555555555" style="left: 1412px; top: 12px;">
+  <div class="slot" data-userid="555555555555555555" style="left: 1021px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -303,7 +303,7 @@
     
   </div>
 
-  <div class="slot" data-userid="666666666666666666" style="left: 1762px; top: 12px;">
+  <div class="slot" data-userid="666666666666666666" style="left: 1265px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -329,7 +329,7 @@
     
   </div>
 
-  <div class="slot" data-userid="777777777777777777" style="left: 12px; top: 362px;">
+  <div class="slot" data-userid="777777777777777777" style="left: 1509px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
@@ -355,7 +355,7 @@
     
   </div>
 
-  <div class="slot" data-userid="151840089180209153" style="left: 362px; top: 362px;">
+  <div class="slot" data-userid="151840089180209153" style="left: 1753px; top: calc(100% - 160px);">
     
     <div class="name-plate">
       <!-- Esquinas ornamentales -->
